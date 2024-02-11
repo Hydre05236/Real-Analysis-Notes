@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage[T1]{fontenc}
+\usepackage{appendix}
+\usepackage{blindtext}
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+\newtheorem{example}{Example}[subsection]
+\newtheorem{problem}{Exercise}[subsection]
+\newtheorem{note}{Remark}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\numberwithin{equation}{section}
+\pagenumbering{roman}
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=subsection]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightGray}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{defsty}
+\declaretheorem[style=defsty,numberlike=theorem]{definition}
+\tcolorboxenvironment{definition}{colback=LightGray}
+
+\declaretheoremstyle[name=Axiom,]{defsty}
+\declaretheorem[style=defsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGray}
+
+\declaretheoremstyle[name=Corollary,]{defsty}
+\declaretheorem[style=defsty,numberlike=theorem]{corollary}
+\tcolorboxenvironment{corollary}{colback=LightGray}
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+\usepackage{tikz}
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Analysis}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{Real and Complex Analysis} \vspace*{10\baselineskip}}
+		}
+\date{\today}
+\author{\textbf{Author} \\ 
+		Hydre05236 \\
+		Nanjing Audit University \\
+		}
+
+\maketitle
+\newpage
+\section*{Preface}
+To be continued.
+\newpage
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\part{Real Analysis}
+\newpage
+\input{RudinRCA/Chap1-9}
+\newpage
+\part{Complex Analysis}
+\newpage
+\input{RudinRCA/Chap10-?}
+\newpage
+\part{Functional Analysis}
+\newpage
+\newpage
+\end{document}
