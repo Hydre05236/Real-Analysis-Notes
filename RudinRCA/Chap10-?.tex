@@ -2011,3 +2011,283 @@ $$
 $$
 This finished the proof.
 \end{proof}
+\begin{problem}\em
+Suppose $\Omega$ is a region, $f_n\in H(\Omega)$ for $n=1,2,3,\cdots$, $u_n$ is the real part of $f_n$. If $\{u_n\}$ converges uniformly on compact subsets of $\Omega$, $\{f_n(z)\}$ converges for at least one $z\in\Omega$, then $\{f_n\}$ converges uniformly on compact subsets of $\Omega$.
+\end{problem}
+\begin{proof}
+Let $S$ be the set of all $z\in\Omega$ such that $f_n(z)$ converges. Then $S$ is nonempty by the hypothesis. Suppose $a\in S$, then there exists some $R>0$ such that $D(a,2R)\subset\Omega$. Define $\widetilde{f_n}(z)=f(a+z)$ and $\widetilde{u_n}(z)=u_n(a+z)$, by Schwartz's formula we have 
+$$
+\widetilde{f_n}\left( z \right) =\mathrm{i}\cdot \Im \widetilde{f_n}\left( 0 \right) +\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left( \frac{2R\cdot e^{\mathrm{i}t}+z}{2R\cdot e^{\mathrm{i}t}-z} \right) \cdot \widetilde{u_n}\left( 2R\cdot e^{\mathrm{i}t} \right) \mathrm{d}t}.
+$$
+Therefore 
+$$
+f_n\left( a+z \right) =\mathrm{i}\cdot \Im f_n\left( a \right) +\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left( \frac{2R\cdot e^{\mathrm{i}t}+z}{2R\cdot e^{\mathrm{i}t}-z} \right) \cdot u_n\left( a+2R\cdot e^{\mathrm{i}t} \right) \mathrm{d}t},
+$$
+where $z\in D(0,2R)$. If we take $|z|=R$, we have 
+$$
+\left| \frac{2R\cdot e^{\mathrm{i}t}+z}{2R\cdot e^{\mathrm{i}t}-z} \right|=\left| \frac{2R\cdot e^{\mathrm{i}t}+R\cdot e^{\mathrm{i}\theta}}{2R\cdot e^{\mathrm{i}t}-R\cdot e^{\mathrm{i}\theta}} \right|\le 3,
+$$
+hence 
+$$
+\begin{aligned}
+\left| f_n\left( a+z \right) -f_m\left( a+z \right) \right|&\le \left| f_n\left( a \right) -f_m\left( a \right) \right|+\frac{3}{2\pi}\int_{-\pi}^{\pi}{\left| u_n\left( a+2R\cdot e^{\mathrm{i}t} \right) -u_m\left( a+2R\cdot e^{\mathrm{i}t} \right) \right|\mathrm{d}t}
+\\
+&\le \left| f_n\left( a \right) -f_m\left( a \right) \right|+3\cdot \mathop {\mathrm{sup}} \limits_{t\in \left[ -\pi ,\pi \right]}\left| u_n\left( a+2R\cdot e^{\mathrm{i}t} \right) -u_m\left( a+2R\cdot e^{\mathrm{i}t} \right) \right|.
+\end{aligned}
+$$
+Now we obtain that 
+$$
+\mathop {\mathrm{sup}} \limits_{z\in D\left( a,R \right)}\left| f_n\left( z \right) -f_m\left( z \right) \right|\le \left| f_n\left( a \right) -f_m\left( a \right) \right|+3\cdot \mathop {\mathrm{sup}} \limits_{\zeta \in \overline{D}\left( a,2R \right)}\left| u_n\left( \zeta \right) -u_m\left( \zeta \right) \right|<\left| f_n\left( a \right) -f_m\left( a \right) \right|+\frac{\varepsilon}{2}.
+$$
+Note that $a\in S$, we therefore have 
+$$
+\mathop {\mathrm{sup}} \limits_{z\in D\left( a,R \right)}\left| f_n\left( z \right) -f_m\left( z \right) \right|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon 
+$$
+when $n$ and $m$ are sufficiently large. Therefore $D(a,R)\subset S$. Now apply the basic connectedness lemma we have $S=\Omega$.\par
+Now we show that the $\{f_n\}$ converges uniformly on compact subsets of $\Omega$. Suppose $K\subset\Omega$ is compact. Then 
+$$
+K\subset \bigcup_{i=1}^N{D\left( a_i,R_i \right)}\subset \bigcup_{a\in K}{D\left( a,R_a \right)}\subset \Omega 
+$$
+by compactness. Therefore for each $D(a_i,R_i)$ we have 
+$$
+\left| f_n\left( z \right) -f_m\left( z \right) \right|\le \varepsilon ,\hspace{0.5cm}z\in D\left( a_i,R_i \right) 
+$$
+where $n$ and $m$ are sufficiently large. Therefore for all $z\in K$ we have $|f_n(z)-f_m(z)|<\varepsilon$ and hence $\{f_n\}$ converges uniformly over $K$. This finished the proof.
+\end{proof}
+\begin{problem}\em
+Suppose $I=[a,b]$ is an interval on the real axis, $\varphi$ is a continuous function on $I$, and 
+$$f(z)=\frac{1}{2\pi\mathrm{i}}\int_a^b\frac{\varphi(t)}{t-z}\mathrm{d}t,\hspace{0.5cm}(z\notin I)$$
+then the limit 
+$$\lim_{\varepsilon\to 0}[f(x+\mathrm{i}\varepsilon-f(x-\mathrm{i}\varepsilon)]$$
+exists for every real $x$, and find it in terms of $\varphi$.
+\end{problem}
+\begin{proof}
+We first compute 
+$$
+\begin{aligned}
+f\left( x+\mathrm{i}\varepsilon \right) -f\left( x-\mathrm{i}\varepsilon \right) &=\frac{1}{2\pi \mathrm{i}}\int_a^b{\varphi \left( t \right) \cdot \left( \frac{1}{t-x-\mathrm{i}\varepsilon}-\frac{1}{t-x+\mathrm{i}\varepsilon} \right) \mathrm{d}t}
+\\
+&=\frac{1}{2\pi \mathrm{i}}\int_a^b{\varphi \left( t \right) \cdot \frac{2\mathrm{i}\varepsilon}{\left( x-t \right) ^2+\varepsilon ^2}\mathrm{d}t}
+\\
+&=\int_a^b{\left[ \frac{\varepsilon}{\pi}\cdot \frac{1}{\left( x-t \right) ^2+\varepsilon ^2} \right] \cdot \varphi \left( t \right) \mathrm{d}t}=\int_a^b{P_{\varepsilon}\left( x-t \right) \varphi \left( t \right) \mathrm{d}t}
+\\
+&=\int_{-\infty}^{+\infty}{P_{\varepsilon}\left( t \right) \varphi \left( x-t \right) \mathrm{d}t}=\left( \varphi *P_{\varepsilon} \right) \left( x \right) .
+\end{aligned}
+$$
+Note that we shall assume $\varphi(t)=0$ for $t\in\mathbb{R}\setminus I$ and hence $\varphi\in L^\infty(\mathbb{R})$. Now we prove a revised version of Theorem 9.2.4. We asserts that indeed we have 
+$$
+\begin{aligned}
+\lim_{\varepsilon \rightarrow 0} \left( \left( \varphi *P_{\varepsilon} \right) \left( x \right) -\frac{\varphi \left( x^+ \right) +\varphi \left( x^- \right)}{2} \right) &=\lim_{\varepsilon \rightarrow 0} \int_{-\infty}^{+\infty}{\left( \varphi \left( x-\varepsilon t \right) -\frac{\varphi \left( x^+ \right) +\varphi \left( x^- \right)}{2} \right) P\left( t \right) \mathrm{d}t}
+\\
+&=\lim_{\varepsilon \rightarrow 0} \int_{-\infty}^0{+\int_0^{+\infty}{\left( \varphi \left( x-\varepsilon t \right) -\frac{\varphi \left( x^+ \right) +\varphi \left( x^- \right)}{2} \right) P\left( t \right) \mathrm{d}t}}
+\\
+&=\int_{-\infty}^0{\lim_{\varepsilon \rightarrow 0} \left( \varphi \left( x-\varepsilon t \right) -\frac{\varphi \left( x^+ \right) +\varphi \left( x^- \right)}{2} \right) P\left( t \right) \mathrm{d}t}
+\\
+&+\int_0^{+\infty}{\lim_{\varepsilon \rightarrow 0} \left( \varphi \left( x-\varepsilon t \right) -\frac{\varphi \left( x^+ \right) +\varphi \left( x^- \right)}{2} \right) P\left( t \right) \mathrm{d}t}
+\\
+&=\frac{\varphi \left( x^+ \right) -\varphi \left( x^- \right)}{2}\int_0^{+\infty}{P\left( t \right) \mathrm{d}t}-\frac{\varphi \left( x^+ \right) -\varphi \left( x^- \right)}{2}\int_0^{+\infty}{P\left( t \right) \mathrm{d}t}=0,
+\end{aligned}
+$$
+therefore 
+$$
+\lim_{\varepsilon \rightarrow 0} \left[ f\left( x+\mathrm{i}\varepsilon \right) -f\left( x-\mathrm{i}\varepsilon \right) \right] =\frac{\varphi \left( x^+ \right) -\varphi \left( x^- \right)}{2}=\left\{ \begin{aligned}
+	\varphi \left( x \right) &,x\in \left( a,b \right) ,\\
+	0&,x\notin \left[ a,b \right] ,\\
+	\frac{\varphi \left( a^+ \right)}{2}&,x=a,\\
+	\frac{\varphi \left( b^- \right)}{2}&,x=b.\\
+\end{aligned} \right. 
+$$
+This finished the analysis of the problem.
+\end{proof}
+\begin{problem}\em
+Suppose that $I=[a,b]$, $\Omega$ is a region, $I\subset\Omega$, $f$ is continuous in $\Omega$, and $f\in H(\Omega\setminus I)$. Prove that $f\in H(\Omega)$.
+\end{problem}
+\begin{proof}
+The proof of which follows from the proof of Theorem 11.3.2, which is due to E.M. stein, and we shall not repeat the proof here.
+\end{proof}
+\begin{problem}\em
+Suppose $\Omega$ is a region, $K$ is a compact subset of $\Omega$, $z_0\in\Omega$. Prove that there exist positive numbers $\alpha$ and $\beta$ (depending on $z_0$, $K$ and $\Omega$) such that $\alpha u(z_0)\le u(z)\le \beta u(z_0)$ for every positive harmonic function $u$ in $\Omega$ and for all $z\in K$.\par
+If $\{u_n\}$ is a sequence of positive harmonic functions in $\Omega$ and if $u_n(z_0)\to 0$ for some $z_0\in\Omega$, describe the behavior of $\{u_n\}$ in the rest of $\Omega$.
+\end{problem}
+\begin{proof}
+Take $\delta=\frac{1}{2}\rho(K,\partial\Omega)$. Then for each two $z_1,z_2\in\Omega$ such that $|z_1-z_2|\le 2\delta$, we have 
+$$
+u\left( z_1 \right) =\frac{1}{4\pi \delta ^2}\int_{D\left( z_1,2\delta \right)}{u\left( \zeta \right) \mathrm{d}\zeta}\ge \frac{1}{4\pi \delta ^2}\int_{D\left( z_2,\delta \right)}{u\left( \zeta \right) \mathrm{d}\zeta}=\frac{1}{4}\cdot \frac{1}{\pi \delta ^2}\int_{D\left( z_2,\delta \right)}{u\left( \zeta \right) \mathrm{d}\zeta}=\frac{1}{4}u\left( z_2 \right) ,
+$$
+hence we conclude that 
+$$
+\frac{1}{4}u\left( z_2 \right) \le u\left( z_1 \right) \le 4u\left( z_2 \right) .
+$$
+Now suppose $z\in K$. Since $\Omega$ is open and $2\delta=\rho(K,\partial\Omega)$, we have 
+$$
+z\in \bigcup_{i=1}^N{D\left( w_i,2\delta \right)}\subset \bigcup_{w\in \overline{z_0z}\cap K}{D\left( w,2\delta \right)}\subset \Omega ,
+$$
+where the first inclusion follows from the fact that $K$ is compact. Therefore by the preceding inequality we have 
+$$
+\alpha u\left( z_0 \right) \le \frac{1}{4^N}u\left( w_N \right) \le \frac{1}{4^{N-1}}u\left( w_{N-1} \right) \le \cdots \le u\left( z \right) \le \cdots \le 4^{N-1}u\left( w_{N-1} \right) \le 4^Nu\left( w_N \right) \le \beta u\left( z_0 \right) ,
+$$
+which finished the proof of the inequality.\par
+Now suppose $u_n(z_0)\to 0$ for some $z_0$. Then by Harnack's inequality we have 
+$$
+0\le \lim_{n\rightarrow \infty} u\left( z \right) \le \beta \cdot \lim_{n\rightarrow \infty} u\left( z_0 \right) =0
+$$
+for all $z\in K$, where $K$ is a compact subset of $\Omega$. Whence by taking the supremum over all $K$ we conclude that $u_n\to 0$ for all $z\in\Omega$. 
+\end{proof}
+\begin{problem}\em
+Suppose $u$ is a positive harmonic function in $U$ and $u(0)=1$. How large (small) can $u(\frac{1}{2})$ be?
+\end{problem}
+\begin{proof}
+Since $u$ is a positive harmonic function, we have the following representation by Poisson kernel: 
+$$
+\begin{aligned}
+u\left( re^{\mathrm{i}\theta} \right) &=\frac{1}{2\pi}\int_{-\pi}^{\pi}{P_r\left( \theta -t \right) u\left( e^{\mathrm{i}t} \right) \mathrm{d}t}
+\\
+&=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\frac{1-r^2}{1-2r\cos \left( \theta -t \right) +r^2}\cdot u\left( e^{\mathrm{i}t} \right) \mathrm{d}t}
+\\
+&=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\frac{3}{5-4\cos \left( \theta -t \right)}\cdot u\left( e^{\mathrm{i}t} \right) \mathrm{d}t}.
+\end{aligned}
+$$
+Note that 
+$$
+\frac{1}{3}=\frac{3}{5+4}\le \frac{3}{5-4\cos \left( \theta -t \right)}\le \frac{3}{5-4}=1,
+$$
+we have 
+$$
+\frac{1}{3}=\frac{1}{3}u\left( 0 \right) \le \frac{1}{3}\cdot \frac{1}{2\pi}\int_{-\pi}^{\pi}{u\left( e^{\mathrm{i}t} \right) \mathrm{d}t}\le u\left( \frac{1}{2} \right) \le 3\cdot \frac{1}{2\pi}\int_{-\pi}^{\pi}{u\left( e^{\mathrm{i}t} \right) \mathrm{d}t}=3u\left( 0 \right) =3,
+$$
+whence $u(\frac{1}{2})\in[\frac{1}{3},3]$.
+\end{proof}
+\begin{problem}\em
+For which pairs of lines $L_1$, $L_2$ do there exist real functions, harmonic in the whole plane, that are zero at all points $L_1\cup L_2$ without vanishing identically?
+\end{problem}
+\begin{proof}
+We divide the discussion into three parts.\par
+(i) $L_1$ and $L_2$ are parallel. We may suppose, by proper translation and rotation, that $L_1$ is the $x$-axis and $L_2$ is the line $y=A$. Then consider the function 
+$$
+u\left( x,y \right) =e^{\frac{\pi x}{A}}\cdot \sin \frac{\pi y}{A},\hspace{0.5cm}\left( x,y \right) \in \mathbb{R} ^2.
+$$
+Therefore $u$ is a harmonic function that vanishes on $L_1\cup L_2$.\par
+(ii) $L_1$ and $L_2$ are perpendicular. We may suppose that $L_1$ is the $x$-axis and $L_2$ is the $y$-axis. Then consider the function $u(x,y)=xy$, which is a harmonic function that vanishes over $L_1\cup L_2$.\par
+(iii) $L_1$ and $L_2$ intersect (without being perpendicular). Suppose the intersect angle of $L_1$ and $L_2$ is $\theta$. Then our discussion is divided into two parts.\par
+Suppose $\theta=m\pi/n$ for some $m/n\in\mathbb{Q}$. Then consider the function $f(z)=z^n$. Since $z^n$ is entire, its imaginary part is harmonic. Take $x\in L^1$, then $x^n\in\mathbb{R}$, hence $\Im f(x,0)=0$, whence vanishes on $L_1$. Now take $z\in L^2$, then $z$ has the representation 
+$$
+z=k\left( \cos \frac{m\pi}{n}+\mathrm{i}\cdot \sin \frac{m\pi}{n} \right) ,
+$$
+whence 
+$$
+k^n\cdot \left( -1 \right) ^m=k^n\cdot \left( \cos \frac{m\pi}{n}+\mathrm{i}\cdot \sin \frac{m\pi}{n} \right) ^n=z^n\in \mathbb{R} ,
+$$
+whence $\Im f$ vanishes over $L_2$. However $\Im f$ is not identically zero.\par
+Suppose $\theta=\alpha\pi$, where $\alpha$ is irreducible. Then $\{n\alpha\}_{n=1}^\infty$ is dense modulo $2\pi$. Now by applying the refection principle repeatedly with respect to $L_2$, we obtain a class of lines $L^{(n)}:y=\tan(n\alpha\pi)x$, where $u$ is zero over these lines. However $\{L^{(n)}\}$ is dense in $\mathbb{C}$, therefore by the continuity of $u$ we conclude that $u$ is identically zero over $\mathbb{C}$.
+\end{proof}
+\begin{problem}\em
+Suppose $u$ is a positive harmonic function in $U$, and $u(re^{\mathrm{i}\theta})\to 0$ as $r\to 1$ for every $e^{\mathrm{i}\theta}\ne 1$. Show that there is a constant $c$ such that $u(re^{\mathrm{i}\theta})=cP_r(\theta)$.
+\end{problem}
+\begin{proof}
+Note that by the maximal modulus principle we have $u(re^\mathrm{i}\theta)\le u(se^{\mathrm{i}\theta})$ and hence 
+$$
+\mathop {\mathrm{sup}} \limits_{0<r<1}\left\| u_r \right\| _1=\mathop {\mathrm{sup}} \limits_{0<r<1}\int_T{\left| u_r\left( e^{\mathrm{i}\theta} \right) \right|\mathrm{d}\theta}\le \lim_{r\rightarrow 1} \int_T{\left| u_r\left( e^{\mathrm{i}\theta} \right) \right|\mathrm{d}\theta}=0,
+$$
+therefore there exists some $\mu$ such that $u_r=P[\mathrm{d}\mu]$. Now note that for an arbitrarily chosen $0<\varepsilon<1$ we have 
+$$
+\begin{aligned}
+u_r\left( \left( 1-\varepsilon \right) e^{\mathrm{i}\theta} \right) &=\frac{1}{2\pi}\int_T{P_{1-\varepsilon}\left( \theta -t \right) \mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}
+\\
+&=\frac{1}{2\pi}\int_{I\left( \theta ,2\pi \right)}{P_{1-\varepsilon}\left( t \right) \mathrm{d}\mu \left( e^{\mathrm{i}\left( \theta -t \right)} \right)}
+\\
+&\ge \frac{1}{2\pi}\int_{-\varepsilon}^{\varepsilon}{\frac{1-\left( 1-\varepsilon \right) ^2}{1-2\left( 1-\varepsilon \right) \cos \varepsilon +\left( 1-\varepsilon \right) ^2}\mathrm{d}\mu \left( e^{\mathrm{i}\left( \theta -t \right)} \right)}
+\\
+&=\frac{1}{2\pi}\int_{-\varepsilon}^{\varepsilon}{\frac{1-\left( 1-\varepsilon \right) ^2}{2\left( 1-\varepsilon \right) \left( 1-\cos \varepsilon \right) +\varepsilon ^2}\mathrm{d}\mu \left( e^{\mathrm{i}\left( \theta -t \right)} \right)}
+\\
+&=\frac{1}{2\pi}\int_{-\varepsilon}^{\varepsilon}{\left[ 1-\left( 1-\varepsilon \right) ^2 \right] \left( 2\left( 1-\varepsilon \right) \sum_{n=1}^{\infty}{\frac{\left( -1 \right) ^{n-1}\varepsilon ^{2n}}{\left( 2n \right) !}}+\varepsilon ^2 \right) ^{-1}\mathrm{d}\mu \left( e^{\mathrm{i}\left( \theta -t \right)} \right)}
+\\
+&\ge \frac{1}{2\pi}\int_{-\varepsilon}^{\varepsilon}{\frac{M\left[ 1-\left( 1-\varepsilon \right) ^2 \right]}{\varepsilon ^2}\mathrm{d}\mu \left( e^{\mathrm{i}\left( \theta -t \right)} \right)}
+\\
+&\ge \frac{M}{2\pi}\cdot \frac{\mu \left( I\left( e^{\mathrm{i}\theta},\varepsilon \right) \right)}{\varepsilon}.
+\end{aligned}
+$$
+Consequently, we have 
+$$
+\lim_{\varepsilon \rightarrow 0} \frac{\mu \left( I\left( e^{\mathrm{i}\theta},\varepsilon \right) \right)}{\varepsilon}=0
+$$
+for every $e^{\mathrm{i}\theta}\ne 1$. This implies $\mu$ is a positive point mass at $1$ which implies that 
+$$
+u\left( re^{\mathrm{i}\theta} \right) =\frac{1}{2\pi}\int_T{P_r\left( \theta -t \right) \mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}=\mu \left( 1 \right) P_r\left( \theta \right) ,
+$$
+which finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $\Phi$ be the set of all positive harmonic functions $u$ in $U$ such that $u(0)=1$. Show that $\Phi$ is a convex set and find the extreme points of $\Phi$.
+\end{problem}
+\begin{proof}
+We first show that $\Phi$ is convex. Take $\lambda\in[0,1]$ and $u,v\in\Phi$. Then trivially $\lambda u+(1-\lambda)v$ is harmonic and has its value $1$ at $0$. Therefore $\lambda u+(1-\lambda)v\in\Phi$ and hence $\Phi$ is convex.\par
+To determine the extreme points of $\Phi$, we first show that $\Phi$ is homeomorphism to the space $\mathscr{C}$, which consists of all Borel measures on $T$ with $|\mu|(T)=1$. On the one hand, suppose $\mu\in\mathscr{C}$, then 
+$$
+u\left( z \right) =\int_T{P\left( z,e^{\mathrm{i}t} \right) \mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}
+$$
+is harmonic. Note that 
+$$
+u\left( 0 \right) =\int_T{P\left( 0,e^{\mathrm{i}t} \right) \mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}=\int_T{\mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}=\left| \mu \right|\left( T \right) =1,
+$$
+therefore $u\in\Phi$. Conversely, every $u\in\Phi$ may be represented in the form of $u=P[\mathrm{d}\mu]$ for some $\mu$ since 
+$$
+\mathop {\mathrm{sup}} \limits_{0<r<1}\left\| u_r \right\| _1=\frac{1}{2\pi}\mathop {\mathrm{sup}} \limits_{0<r<1}\int_{-\pi}^{\pi}{\left| u\left( re^{\mathrm{i}\theta} \right) \right|\mathrm{d}\theta}=\frac{1}{2\pi}\mathop {\mathrm{sup}} \limits_{0<r<1}\int_{-\pi}^{\pi}{u\left( re^{\mathrm{i}\theta} \right) \mathrm{d}\theta}=u\left( 0 \right) <\infty ,
+$$
+and trivially $|\mu|(T)=0$, we therefore have a one-to-one correspondence between $\Phi$ and $\mathscr{C}$. Now note that for every $u,v\in\Phi$ and $\alpha,\beta\in\mathbb{C}$, we have 
+$$
+\alpha u\left( z \right) +\beta v\left( z \right) =\alpha \int_T{P\left( z,e^{\mathrm{i}t} \right) \mathrm{d}\mu \left( e^{\mathrm{i}t} \right)}+\beta \int_T{P\left( z,e^{\mathrm{i}t} \right) \mathrm{d}\nu \left( e^{\mathrm{i}t} \right)}=\int_T{P\left( z,e^{\mathrm{i}t} \right) \mathrm{d}\left[ \alpha \mu +\beta \nu \right] \left( e^{\mathrm{i}t} \right)},
+$$
+therefore $\Phi\simeq\mathscr{C}$. Hence it suffices to determine all extreme points in $\mathscr{C}$. We claim that such measure is a unit mass concentrated at $e^{\mathrm{i}t}$. Trivially such measure is a extreme point in $\mathscr{C}$. If there is a measure $\mu$ that is not a unit mass but an extreme point in $\mathscr{C}$, then there exists some measurable set $E\subset T$ such that $0<\mu(E)<1$. Define 
+$$
+\mu _E\left( F \right) =\frac{\mu \left( F\cap E \right)}{\mu \left( E \right)},\hspace{0.5cm}\mu _{T\setminus E}\left( F \right) =\frac{\mu \left( F\setminus E \right)}{\mu \left( T\setminus E \right)},
+$$
+then 
+$$
+\left| \mu _E \right|\left( T \right) =\frac{\left| \mu \right|\left( T\cap E \right)}{\left| \mu \right|\left( E \right)}=\frac{\left| \mu \right|\left( E \right)}{\left| \mu \right|\left( E \right)}=1
+$$
+and 
+$$
+\left| \mu _{T\setminus E}\left( T \right) \right|=\frac{\left| \mu \right|\left( T\setminus E \right)}{\left| \mu \right|\left( T\setminus E \right)}=1.
+$$
+Thus these two measures belong to $\mathscr{C}$. However if we set $\lambda=\mu(E)$, then for every measurable subset $F\subset T$, we have 
+$$
+\lambda \mu _E\left( F \right) +\left( 1-\lambda \right) \mu _{T\setminus E}\left( F \right) =\mu \left( E \right) \cdot \frac{\mu \left( F\cap E \right)}{\mu \left( E \right)}+\left[ 1-\mu \left( E \right) \right] \cdot \frac{\mu \left( F\setminus E \right)}{\mu \left( T\setminus E \right)}=\mu \left( F\cap E \right) +\mu \left( F\setminus E \right) =\mu \left( F \right) ,
+$$
+which implies $\mu$ is not an extreme point in $\mathscr{C}$, a contradiction! Therefore the set of the extreme points in $\Phi$ is precisely the Poisson kernels 
+$$
+\mathrm{ext}\Phi =\left\{ P\left( z,e^{\mathrm{i}t} \right) :e^{\mathrm{i}t}\in T \right\} .
+$$
+This finished the proof.
+\end{proof}
+\begin{problem}\em
+Let $X^*$ be the dual space of the Banach space $X$. A sequence $\{\Lambda_n\}$ in $X^*$ is said to \textbf{converge weakly} to $\Lambda\in X^*$ if $\Lambda_nx\to\Lambda x$ as $n\to\infty$ for every $x\in X$. Show that $\{\|\Lambda_n\|\}$ is bounded if $\{\Lambda_n\}$ converges weakly.
+\end{problem}
+\begin{proof}
+If $\{\Lambda_n\}\subset X^*$ and $\Lambda_n\to\Lambda$ weakly, then for all $x\in X$ we have $\Lambda_nx\to\Lambda x$. Since $X^*$ is a collection of bounded linear functionals, we have $\sup_{n\in\mathbb{N}_+}|\Lambda_n(x)|=M_x<\infty$. Therefore by Banach-Steinhaus theorem we have 
+$$
+\mathop {\mathrm{sup}} \limits_{n\in \mathbb{N} _+}\left\| \Lambda _n \right\| \le M<\infty ,
+$$
+whence $\{\|\Lambda_n\|\}$ is bounded.
+\end{proof}
+\begin{problem}\em
+Suppose $E\subset T$, $m(E)=0$. Prove that there is an $f\in H^\infty$ with $f(0)=1$, that has $f(re^{\mathrm{i}\theta})\to 0$ (as $r\to 1$) at every $e^{\mathrm{i}\theta})\in E$.
+\end{problem}
+\begin{proof}
+Since $m(E)=0$, we may choose a family of open sets $\{V_n\}_{n=1}^\infty$ such that $V_n\supset E$ and $m(V_n)=1/2^n$. Therefore if we define $\phi(z)=\sum\chi_{V_n}(z)$, we have 
+$$
+\left\| \varphi \right\| _1=\int_T{\left| \varphi \left( z \right) \right|\mathrm{d}z}=\sum_{n=1}^{\infty}{\int_T{\chi _{V_n}\left( z \right) \mathrm{d}z}}=\sum_{n=1}^{\infty}{m\left( V_n \right)}=\sum_{n=1}^{\infty}{\frac{1}{2^n}}=1,
+$$
+and hence $\varphi\in L^1(T)$. Now suppose $u=P[\varphi]$, then $u$ is the real part of some holomorphic function $g$. Trivially $u\ne 0$, we now observe that for $e^{\mathrm{i}\theta}\in E$, we have the estimate 
+$$
+\begin{aligned}
+\lim_{r\rightarrow 1} u\left( re^{\mathrm{i}\theta} \right) &=\lim_{r\rightarrow 1} \frac{1}{2\pi}\int_T{P\left( re^{\mathrm{i}\theta},e^{\mathrm{i}t} \right) \varphi \left( e^{\mathrm{i}t} \right) \mathrm{d}t}=\frac{1}{2\pi}\lim_{r\rightarrow 1} \int_T{\frac{re^{\mathrm{i}\theta}+e^{\mathrm{i}t}}{re^{\mathrm{i}\theta}-e^{\mathrm{i}t}}\cdot \sum_{n=1}^{\infty}{\chi _{V_n}\left( e^{\mathrm{i}t} \right)}\mathrm{d}t}
+\\
+&=\frac{1}{2\pi}\lim_{r\rightarrow 1} \sum_{n=1}^{\infty}{\int_{V_n}{\frac{re^{\mathrm{i}\theta}+e^{\mathrm{i}t}}{re^{\mathrm{i}\theta}-e^{\mathrm{i}t}}\mathrm{d}t}}=\frac{1}{2\pi}\sum_{n=1}^{\infty}{\int_{V_n}{\frac{e^{\mathrm{i}\theta}+e^{\mathrm{i}t}}{e^{\mathrm{i}\theta}-e^{\mathrm{i}t}}}\mathrm{d}t}
+\\
+&\ge \frac{1}{2\pi}\sum_{n=1}^{\infty}{\int_{V_n}{\left( e^{\mathrm{i}\theta}+e^{\mathrm{i}t} \right) \cdot 2^n\mathrm{d}t}}\ge \frac{1}{2\pi}\sum_{n=1}^{\infty}{2^n\left( 1+e^{\mathrm{i}\theta} \right) \cdot m\left( V_n \right)}
+\\
+&=\frac{1}{2\pi}\sum_{n=1}^{\infty}{\left( 1+e^{\mathrm{i}\theta} \right)}=\infty ,
+\end{aligned}
+$$
+hence if we define $f=1/g$, then $f\in H^\infty$ and satisfy the conditions.
+\end{proof}
