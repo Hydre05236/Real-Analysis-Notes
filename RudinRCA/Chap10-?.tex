@@ -2291,3 +2291,175 @@ $$
 $$
 hence if we define $f=1/g$, then $f\in H^\infty$ and satisfy the conditions.
 \end{proof}
+\newpage
+\section{The Maximum Modulus Principle}
+In this section we further study the Maximum Modulus Principle. Here is a restatement of the theorem: If $K$ is the closure of a bounded region $\Omega$ and $f$ is continuous on $K$, holomorphic in $\Omega$, then $|f(z)|\le\|f\|_{\partial\Omega}$ for every $z\in\Omega$. If the equality holds at one point $z\in\Omega$, then $f$ is a constant. In this section we give further generalizations of maximum modulus theorem, as well as rather striking applications of it, and it concludes with a theorem which shows that the maximum property "almost" characterizes the class of homomorphic functions.
+\subsection{The Schwarz Lemma}
+We shall use the notations established in the previous section. The following theorem is commonly known as the \textbf{Schwarz Lemma}.
+\begin{theorem}
+Suppose $f\in H^\infty$, $\|f\|_\infty\le 1$ and $f(0)=0$. Then $|f(z)|\le |z|$ for all $z\in U$ and $|f^\prime(0)|\le 1$. If $|f(z)|=|z|$ for some $z\in U\setminus\{0\}$ or if the second equality holds, then $f(z)=\lambda z$ for some $|\lambda|=1$.
+\end{theorem}
+\begin{proof}
+Since $f\in H^\infty$ and $f(0)=0$, we have $f(z)/z$ has a removable singularity at $z=0$, whence there exists some holomorphic function $g(z)=f(z)/z$ such that $g\in H(U)$. If $z\in U$ and $|z|<r<1$, we have 
+$$
+\left| g\left( z \right) \right|=\left| \frac{f\left( z \right)}{z} \right|\le \max_{\theta} \frac{\left| f\left( re^{\mathrm{i}\theta} \right) \right|}{r}\le \frac{1}{r}.
+$$
+Let $r\to 1$, we conclude that $|g(z)|\le 1$, which is $|f(z)|\le |z|$. Since $g(0)=f^\prime(0)$, we further conclude that $|f^\prime(0)|\le 1$.\par
+Now suppose the equality holds, then $|g(z)|=1$ for all $z\in U$ and hence $f(z)=\lambda z$ for some $|\lambda|=1$.
+\end{proof}
+\begin{note}\em
+Here is a geometric explanation of the theorem. $f$ is a holomorphic mapping of $U$ into $U$ which keeps the origin fixed, then either $f$ is a rotation or $f$ moves each $z\in U\setminus\{0\}$ closer to the origin.
+\end{note}
+We now introduce a function $\varphi_\alpha$. For any $\alpha\in U$, define 
+$$
+\varphi _{\alpha}\left( z \right) =\frac{z-\alpha}{1-\overline{\alpha }\cdot z}.
+$$
+Many variants of the Schwarz lemma can be obtained with the aid of the mapping $\varphi_\alpha$.
+\begin{theorem}
+Fix $\alpha\in U$. Then $\varphi_\alpha$ is a one-to-one mapping which carries $T$ onto $T$, $U$ onto $U$, and $\alpha$ to $0$. The inverse of $\varphi_\alpha$ is $\varphi_{-\alpha}$, and 
+$$
+\varphi _{\alpha}^{\prime}\left( 0 \right) =1-\left| \alpha \right|^2,\hspace{0.5cm}\varphi _{\alpha}^{\prime}\left( \alpha \right) =\frac{1}{1-\left| \alpha \right|^2}.
+$$
+\end{theorem}
+\begin{proof}
+Clearly $\varphi_\alpha$ is a holomorphic function in the whole plane except at a point $1/\overline{\alpha}$, which lies outside of $U$. Hence we have $\varphi_\alpha$ a holomorphic function over $U$. Note that 
+$$
+\left( \varphi _{-\alpha}\circ \varphi _{\alpha} \right) \left( z \right) =\varphi _{-\alpha}\left( \frac{z-\alpha}{1-\overline{\alpha }\cdot z} \right) =\frac{z-\left| \alpha \right|^2\cdot z}{1-\overline{\alpha }\cdot z}\cdot \frac{1-\overline{\alpha }\cdot z}{1-\left| \alpha \right|^2}=z,
+$$
+hence $\varphi_\alpha$ is one-to-one. To see that $\varphi_\alpha$ maps $T$ onto $T$, let $z=e^{\mathrm{i}\theta}$, we have 
+$$
+\left| \varphi _{\alpha}\left( z \right) \right|=\left| \frac{e^{\mathrm{i}t}-\alpha}{1-\overline{\alpha }\cdot e^{\mathrm{i}t}} \right|=\frac{\left| e^{\mathrm{i}t}-\alpha \right|}{\left| e^{\mathrm{i}t} \right|\cdot \left| \overline{\alpha }-e^{-\mathrm{i}t} \right|}=1.
+$$
+To see that $\varphi_\alpha$ maps $U$ onto $U$, note by the maximum modulus theorem that 
+$$
+\left( \varphi _{-\alpha}\circ \varphi _{\alpha} \right) \left( U \right) =U\subset \varphi _{\alpha}\left( U \right) \subset U,
+$$
+which implies $\varphi_\alpha(U)=U$. The two derivatives follows from a simple calculation.
+\end{proof}
+Let's consider an extremal problem. Suppose $\alpha$ and $\beta$ are complex numbers, $|\alpha|<1$, and $|\beta|<1$. If $f\in H^\infty$, $\|f\|_\infty\le 1$ and $f(\alpha)=\beta$, how large can $|f^\prime(\alpha)|$ be? To solve this, put $g=\varphi_\beta\circ f\circ\varphi_{-\alpha}$. Since $\varphi_{-\alpha}$ and $\varphi_\beta$ map $U$ onto $U$, we see that $g\in H^\infty$ and $\|g\|_\infty\le 1$. Also $g(0)=0$. Therefore by Schwarz lemma we have $|g^\prime(0)|\le 1$. But by the chain rule we have 
+$$
+\begin{aligned}
+g^{\prime}\left( z \right) &=\left( \varphi _{\beta}\circ f\circ \varphi _{-\alpha} \right) ^{\prime}\left( z \right) =\left( \varphi _{\beta}^{\prime}\circ f\circ \varphi _{-\alpha} \right) \left( z \right) \left( f\circ \varphi _{-\alpha} \right) ^{\prime}\left( z \right) 
+\\
+&=\left( \varphi _{\beta}^{\prime}\circ f\circ \varphi _{-\alpha} \right) \left( z \right) \left( f^{\prime}\circ \varphi _{-\alpha} \right) \left( z \right) \varphi _{-\alpha}^{\prime}\left( z \right) ,
+\end{aligned}
+$$
+therefore 
+$$
+g^{\prime}\left( 0 \right) =\varphi _{\beta}^{\prime}\left( \beta \right) f^{\prime}\left( \alpha \right) \varphi _{-\alpha}^{\prime}\left( 0 \right) ,
+$$
+and hence 
+$$
+\left| f^{\prime}\left( \alpha \right) \right|=\left| \frac{g^{\prime}\left( 0 \right)}{\varphi _{\beta}^{\prime}\left( \beta \right) \varphi _{-\alpha}^{\prime}\left( 0 \right)} \right|\le \frac{1-\left| \beta \right|^2}{1-\left| \alpha \right|^2}.
+$$
+Note that the equality can be obtained, therefore we finished the analysis of the problem.\par
+A remarkable feature of the solution should be stressed. We imposed no smoothness conditions on the behavior of $f$ near the boundary of $U$. Nevertheless, it turns out that the functions $f$ which maximize $|f^\prime(\alpha)|$ under the stated restrictions are actually rational functions. Note also that these extremal functions map $U$ onto $U$ and they are one-to-one. This serves as a motivation for the proof of the Riemann mapping theorem.\par
+At present, we shall merely show how this extremal problem can be used to characterize the one-to-one holomorphic mappings of $U$ onto $U$.
+\begin{theorem}
+Suppose $f\in H(U)$, $f$ is one-to-one, $f(U)=U$, $\alpha\in U$ and $f(\alpha)=0$. Then there is a constant $\lambda$, $|\lambda|=1$, such that $f(z)=\lambda\varphi_\alpha(z)$, where $z\in U$.
+\end{theorem}
+\begin{proof}
+Since $f$ is one-to-one, there exists some $g$ such that $(g\circ f)(z)=z$ for all $z\in U$. Since $f$ is one-to-one, $f^\prime$ has no zero in $U$ and $g\in H(U)$ by Theorem 10.5.3. By the chain rule, we have $g^\prime(0)f^\prime(\alpha)=1$. Therefore by the preceding discussion and the fact that 
+$$
+\left| f^{\prime}\left( \alpha \right) \right|\le \frac{1}{1-\left| \alpha \right|^2},\hspace{0.5cm}\left| g^{\prime}\left( 0 \right) \right|\le 1-\left| \alpha \right|^2,
+$$
+we have both the equality holds and hence $f=\lambda\varphi_\alpha$ for some $\lambda$ with $|\lambda|=1$, which finished the proof.
+\end{proof}
+\subsection{The Phragmen-Lindelof Method}
+Our preceding discussion has been made on a bounded region. A natural problem is that whether we can make the maximum modulus theorem onto an unbounded region? The answer, in general, is false. Consider the following counterexample: Let 
+$$
+\Omega =\left\{ z=x+\mathrm{i}y:-\frac{\pi}{2}<y<\frac{\pi}{2} \right\} .
+$$
+Consider $f(z)=\exp(\exp(z))$ defined on $\Omega$. Then $\|f\|_{\partial\Omega}=1$ but $\|f\|_\Omega=\infty$ trivially. Note that the problem is that the function $f$ grow "to fast" when $x\to\infty$. We therefore consider to add some control conditions on the growth speed of $f$.
+\begin{theorem}
+Suppose 
+$$
+\Omega =\left\{ x+\mathrm{i}y:a<x<b \right\} ,\hspace{0.5cm}\overline{\Omega }=\left\{ x+\mathrm{i}y:a\le x\le b \right\} .
+$$
+Also suppose $f\in C(\overline{\Omega})\cap H(\Omega)$, and $|f(z)|\le B$ for all $z\in\Omega$ and some fixed $B<\infty$. If 
+$$
+M\left( x \right) =\mathrm{sup}\left\{ \left| f\left( x+\mathrm{i}y \right) \right|:-\infty <y<+\infty \right\} ,\hspace{0.5cm}\left( a\le x\le b \right) 
+$$
+we have 
+$$
+M^{b-a}\left( x \right) \le M^{b-x}\left( a \right) M^{x-a}\left( b \right) .\hspace{0.5cm}\left( a<x<b \right) 
+$$
+\end{theorem}
+\begin{proof}
+We may suppose $M(a)=M(b)=1$, or otherwise consider the function 
+$$
+g\left( z \right) =M^{\frac{b-z}{b-a}}\left( a \right) \cdot M^{\frac{z-a}{b-a}}\left( b \right) .
+$$
+Now it suffices to show that $|f(z)|\le 1$. To do this, consider an auxiliary function 
+$$
+h_{\varepsilon}\left( z \right) =\frac{1}{1+\varepsilon \left( z-a \right)},\hspace{0.5cm}\left( z\in \overline{\Omega } \right) 
+$$
+since $\Re\{1+\varepsilon(z-a)\}=1+\varepsilon(x-a)\ge 1$ in $\Omega$, we have $|h_\varepsilon|\le 1$ in $\overline{\Omega}$, so that $|fh_\varepsilon|\le 1$ on $\partial\Omega$. Also note that $|1+\varepsilon(z-a)|\ge\varepsilon|y|$, we have $|fh_\varepsilon|\le(B/\varepsilon|y|)$ for all $z\in\overline{\Omega}$, where $z=x+\mathrm{i}y$.\par
+Let $R$ be the rectangle cut off from $\overline{\Omega}$ by the lines $y=\pm B/\varepsilon$ as shown in figure 6: 
+\begin{figure}[htbp]
+    \center
+    \includegraphics[scale=0.29]{img/region-R.png}
+    \caption{Region $R$}
+\end{figure}
+We have by the preceding discussion that $|fh_\varepsilon|\le 1$ on $\partial R$, hence $|fh_\varepsilon|\le 1$ on $R$ by the maximum modulus theorem. However $|fh_\varepsilon|\le 1$ on the rest of $\overline{\Omega}$, therefore $|fh_\varepsilon|\le 1$ for all $z\in\Omega$. Let $\varepsilon\to 1$, we finished the proof.
+\end{proof}
+\begin{note}\em
+The conclusion of the theorem implies that the inequality $|f|\le B$ can be replaced by $|f|\le\max\{M(a),M(b)\}$, so that $|f|$ is no larger in $\Omega$ than the supremum of $|f|$ on the boundary of $\Omega$.\par
+\end{note}
+If we apply the theorem to strips by lines $x=\alpha$ and $x=\beta$, where $a\le\alpha<\beta\le b$, the conclusion may be stated in the following way: Under the hypothesis of Theorem 12.2.1, $\log M$ is a convex function on $(a,b)$.
+\begin{theorem}
+Suppose 
+$$
+\Omega =\left\{ x+\mathrm{i}y:\left| y \right|<\frac{\pi}{2} \right\} ,\hspace{0.5cm}\overline{\Omega }=\left\{ x+\mathrm{i}y:\left| y \right|\le \frac{\pi}{2} \right\} .
+$$
+Also suppose $f\in C(\overline{\Omega})\cap H(\Omega)$, there are constants $\alpha<1$, $A<\infty$ such that 
+$$
+\left| f\left( z \right) \right|<\exp \left\{ A\exp \left( \alpha \left| x \right| \right) \right\} ,\hspace{0.5cm}\left( z=x+\mathrm{i}y\in \Omega \right) 
+$$
+and $|f(x\pm\pi\mathrm{i}/2)|\le 1$ for all $x\in\mathbb{R}$, then $|f(z)|\le 1$ for all $z\in\Omega$.
+\end{theorem}
+\begin{proof}
+Choose $\beta>0$ so that $\alpha<\beta<1$. Define an auxiliary function 
+$$
+h_{\varepsilon}\left( z \right) =\exp \left\{ -\varepsilon \left( e^{\beta z}+e^{-\beta z} \right) \right\} .
+$$
+For $z\in\overline{\Omega}$ we have 
+$$
+\Re \left( e^{\beta z}+e^{-\beta z} \right) =\left( e^{\beta x}+e^{-\beta x} \right) \cos \beta y\ge \delta \left( e^{\beta x}+e^{-\beta x} \right) ,
+$$
+where $\delta=\cos(\beta\pi/2)>0$, since $|\beta|<1$. Hence 
+$$
+\left| h_{\varepsilon}\left( z \right) \right|\le \exp \left\{ -\varepsilon \delta \left( e^{\beta x}+e^{-\beta x} \right) \right\} <1.\hspace{0.5cm}(z\in \overline{\Omega })
+$$
+It follows that $|fh_\varepsilon|\le 1$ on $\partial\Omega$ and that 
+\begin{equation}
+\left| f\left( z \right) h_{\varepsilon}\left( z \right) \right|\le \exp \left\{ Ae^{\alpha \left| x \right|}-\varepsilon \delta \left( e^{\beta x}+e^{-\beta x} \right) \right\} .\hspace{0.5cm}(z\in \overline{\Omega })
+\end{equation}
+Now fix $\varepsilon>0$. Since $\varepsilon\delta>0$ and $\beta>\alpha$, we have the exponent in 12.1 tends to $-\infty$ as $x\to\pm\infty$. Hence there exists an $x_0$ so that the right side of 12.1 is less than $1$ for all $x>x_0$. Since $|fh_\varepsilon|\le 1$ on the boundary of the rectangle whose vertices are $\pm x_0\pm(\pi\mathrm{i}/2)$, the maximum modulus theorem shows that actually $|fh_\varepsilon|\le 1$ on the rectangle. Thus $|fh_\varepsilon|\le 1$ at every point of $\Omega$, for every $\varepsilon>0$. As $\varepsilon\to 0$, $h_\varepsilon(z)\to 1$ for every $z$, so we conclude that $|f(z)|\le 1$ for all $z\in\Omega$.
+\end{proof}
+Here is a slightly different application of the same method. It will be used in a proof of a theorem in conformal mapping.
+\begin{theorem}
+Suppose $\Gamma$ is a curve, with parameter interval $[0,1]$, such that $|\Gamma(t)|\le 1$ if $t<1$ and $\Gamma(1)=1$. If $g\in H^\infty$ and 
+$$
+\lim_{t\to 1}g(\Gamma(t))=L,
+$$
+then $g$ has radial limit $L$ at $1$.
+\end{theorem}
+\begin{proof}
+Assume $|g|<1$, $L=0$, without loss of generality. Let $\varepsilon>0$ be given. There exists $t_0<1$ such that, setting $r_0=\Re\Gamma(t_0)$, we have 
+$$
+\left| g\left( \Gamma \left( t \right) \right) \right|<\varepsilon ,\hspace{0.5cm}\Re \Gamma \left( t \right) >r_0>\frac{1}{2}
+$$
+as soon as $t_0<t<1$.\par
+Choose $r_0<r<1$. Define 
+$$
+h\left( z \right) =g\left( z \right) \overline{g\left( \overline{z} \right) }g\left( 2r-z \right) \overline{g\left( 2r-\overline{z} \right) },\hspace{0.5cm}z\in \Omega = D\left( 0,1 \right) \cap D\left( 2r,1 \right) .
+$$
+Then $h\in H(\Omega)$ and $|h|<1$. If we proved that $|h(r)|<\varepsilon$, then the theorem follows since $|h(r)|=|g(r)|^4$.\par
+Let $E_1=\Gamma([t_1,1])$, where $t_1$ is the largest $t$ for which $\Re\Gamma(t)=r$, let $E_2$ be the reflection of $E_1$ in real axis, and let $E$ be the union of $E_1\cup E_2$ and its reflection in the line $x=r$. Then we have $|h(z)|<\varepsilon$ if $z\in\Omega\setminus E$. Pick $c>$, define 
+$$
+h_c\left( z \right) =h\left( z \right) \left( 1-z \right) ^c\left( 2r-1-z \right) ^c
+$$
+for $z\in\Omega$, and put $h_c(1)=h_c(2r-1)=0$. If $K$ is the union of $E$ and the bounded components of the complement of $E$, then $K$ is compact, $h_c$ is continuous on $K$, holomorphic in the interior of $K$, and $|h_c|<\varepsilon$ on the boundary of $K$. Since the construction of $E$ shows that $r\in K$, the maximum modulus theorem implies that $|h_c(r)|<\varepsilon$. Let $c\to 0$, we finished the proof.
+\end{proof}
+\subsection{An Interpolation Theorem}
