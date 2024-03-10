@@ -2462,4 +2462,27 @@ h_c\left( z \right) =h\left( z \right) \left( 1-z \right) ^c\left( 2r-1-z \right
 $$
 for $z\in\Omega$, and put $h_c(1)=h_c(2r-1)=0$. If $K$ is the union of $E$ and the bounded components of the complement of $E$, then $K$ is compact, $h_c$ is continuous on $K$, holomorphic in the interior of $K$, and $|h_c|<\varepsilon$ on the boundary of $K$. Since the construction of $E$ shows that $r\in K$, the maximum modulus theorem implies that $|h_c(r)|<\varepsilon$. Let $c\to 0$, we finished the proof.
 \end{proof}
-\subsection{An Interpolation Theorem}
+\subsection{A Converse of the Maximum Modulus Theorem}
+In this section, we shall use $j$ to denote the identity function $j(z)=z$ and use $1$ to denote the function that assigns the number $1$ to each $z\in\overline{U}$.
+\begin{theorem}
+Suppose $M$ is a vector space of continuous complex functions on the closed unit disc $\overline{U}$, with the following properties:\par
+(a) $1\in M$.\par
+(b) If $f\in M$, then also $jf\in M$.\par
+(c) If $f\in M$, then $\|f\|_U=\|f\|_T$.\par
+Then every $f\in M$ is holomorphic in $U$.
+\end{theorem}
+\begin{proof}
+By (a) and (b) we have $M$ contains all polynomials. Now combine with (c) we know that every function $f\in M$ has a representation of Poisson integrals, and hence harmonic. We shall use (b) to show that every $f\in M$ actually satisfies the Cauchy-Riemann equation.\par
+Let $\partial$ and $\overline{\partial}$ be the differential operators introduced in Sec 11.1. The product rule for differentiation gives 
+$$
+\left( \partial \overline{\partial } \right) \left( fg \right) =f\cdot \left( \partial \overline{\partial }g \right) +\left( \partial f \right) \cdot \left( \overline{\partial }g \right) +\left( \overline{\partial }f \right) \cdot \left( \partial g \right) +\left( \partial \overline{\partial }f \right) \cdot g.
+$$
+Take $g=j$, we have $fj\in M$ and hence $f$ and $fj$ are harmonic. Therefore $\partial\overline{\partial} f=0$ and $(\partial\overline{\partial}(fj)=0$. Also $\overline{\partial}j=0$ and $\partial j=1$. Therefore we have $\overline{\partial}f=0$ and hence $f\in H(U)$.
+\end{proof}
+The result is used in the proof of the next theorem.
+\begin{theorem}{\textbf{(Rado's Theorem)}}
+Assume $f\in C(\overline{U})$, $\Omega$ is the set of all $z\in U$ at which $f(z)\ne 0$, and $f$ is holomorphic in $\Omega$. Then $f$ is holomorphic in $U$.
+\end{theorem}
+\begin{proof}
+TBC
+\end{proof}
